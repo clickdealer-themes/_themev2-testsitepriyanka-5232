@@ -1,0 +1,213 @@
+.row-block--finance {
+	
+
+	.container,
+	.wrapper {
+		overflow: visible;
+	}
+
+
+	.home-budget-search {
+		width: 100%;
+		display: flex;
+		align-items: center;
+		background: @primary-colour;
+		border-radius: 40px;
+		padding: 80px;
+		@media @lap {
+			padding: 60px;
+		}
+		@media @tablet {
+			flex-wrap: wrap;
+			padding: 40px;
+		}
+		@media @mobile {
+			padding: 32px;
+			border-radius: 32px;
+		}
+
+		&__img {
+			flex-basis: calc(50% - 80px);
+			flex-grow: 0;
+			flex-shrink: 0;
+			margin-right: 80px;
+			border-radius: 20px;
+			overflow: hidden;
+			aspect-ratio: 1/1;
+			@media @lap {
+				flex-basis: calc(50% - 60px);
+				margin-right: 60px;
+			}
+			@media @tablet {
+				flex-basis: 100%;
+				margin-right: 0;
+				margin-bottom: 40px;
+				aspect-ratio: 2/1;
+			}
+			@media @mobile {
+				border-radius: 16px;
+				aspect-ratio: 4/3;
+				margin-bottom: 32px;
+			}
+			&.visible {
+				background: url('@{dealer-img}/theme/finance__bg{CACHE_BUSTER}.jpg') center center no-repeat!important;
+				background-size: cover !important;
+			}
+		}
+
+		&__block {
+			flex-basis: 50%;
+			flex-grow: 0;
+			flex-shrink: 0;
+			@media @tablet {
+				flex-basis: 100%;
+			}
+
+			.row-block__heading {
+				color: white;
+				margin: 0 0 12px 0;
+			}
+			p {
+				color: fade(white, 90%);
+				margin: 0 0 40px 0;
+				font-size: 18px;
+				@media @tablet {
+					margin: 0 0 32px 0;
+				}
+				@media @mobile {
+					margin: 0 0 24px 0;
+				}
+			}
+		}
+	}
+}
+
+// BUDGET SLIDER STYLES
+#budgetSlider {
+	position: relative;
+	text-align: right;
+
+	@media @mobile {
+		text-align: left;
+	}
+
+	.form-group {
+		display: flex;
+		align-items: center;
+		margin-bottom: 24px;
+		@media @tablet {
+			margin-bottom: 20px;
+		}
+		@media @mobile {
+			margin-bottom: 16px;
+		}
+	}
+
+	label,
+	#amount-budget-range-min {
+		margin-right: 16px;
+		padding: 0;
+		color: white;
+		font-family: @body-font;
+		font-size: 24px;
+		line-height: 32px;
+		font-weight: bold;
+
+		@media @mobile {
+			font-size: 20px;
+		}
+	}
+
+	#amount-budget-range-min {
+		width: 80px;
+		height: 32px;
+		padding: 0;
+		background: transparent;
+		color: white;
+		text-indent: 0;
+		box-shadow: none;
+		border: none;
+		border-radius: 0;
+		margin-right: 0;
+
+		@media @mobile {
+			width: 70px;
+		}
+	}
+
+	.slider-group {
+		position: relative;
+		display: flex;
+		width: 100%;
+		margin-top: 4px;
+		margin-bottom: 28px;
+
+		#slider-range-min {
+			width: 100%;
+			height: 24px;
+			margin-bottom: 0;
+			background: @custom-colour2;
+
+			@media @mobile {
+				margin-right: 0;
+				height: 20px;
+			}
+
+			.ui-slider-range {
+				background: @accent-colour;
+			}
+
+			.ui-slider-handle {
+				position: absolute;
+				top: -4px; // Calc half of height of handle - slider range
+				width: 48px;
+				height: 32px;
+				margin-left: -24px; // Offset to half slider handle width for equal position on left and right at endpoints
+				background: white;
+				border-radius: 8px;
+				box-shadow: 0 4px 8px fade(@custom-colour4, 16%);
+				cursor: ew-resize !important;
+
+				@media @mobile {
+					height: 28px;
+					width: 40px;
+					margin-left: -20px;
+				}
+
+				&:focus {
+					outline: none;
+				}
+
+				&:before,
+				&:after {
+					content: '';
+					position: absolute;
+					top: 50%;
+					left: 50%;
+					height: 16px;
+					width: 2px;
+					background: @custom-colour2;
+					transform: translateY(-50%);
+				}
+
+				&:before {
+					margin-left: -2px;
+				}
+
+				&:after {
+					margin-left: 2px;
+				}
+			}
+		}
+	}
+
+	#button-budget-range-min {
+		&:hover {
+			background: white!important;
+			color: @primary-colour!important;
+		}
+		@media @mobile {
+			width: 100%;
+		}
+	}
+}

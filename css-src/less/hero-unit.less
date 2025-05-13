@@ -1,174 +1,368 @@
 .row-block.row-block--hero-unit {
-  .flex-display(@display: flex);
-  .align-items(@align: center);
-  .justify-content(@justify: center);
   position: relative;
-  height: 75vh;
-  min-height: 400px;
   padding: 0;
+  overflow: visible; // Allows for selects/dropdowns to overflow hero unit
 
-  @media @tablet {
-    height: 60vh;
+  height: 84vh;
+
+  @media @mobile {
+    height: 88vh;
+  }
+
+  &.visible {
+    background-image: url('@{dealer-img}/theme/slide-1{CACHE_BUSTER}.jpg') !important;
+    background-position: center;
+    background-size: cover !important;
+
+    @media @mobile {
+      background-image: url('@{dealer-img}/theme/slide-1--mobile{CACHE_BUSTER}.jpg') !important;
+    }
+
+    &::before {
+      content: " ";
+      background: rgba(0, 0, 0, 0.5);
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      top: 0;
+    }
+  }
+
+  &::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    top: 0;
+    background-image: url('@{dealer-img}/theme/hero-unit__background--wave{CACHE_BUSTER}.svg');
+    background-size: 100% auto;
+    background-position: bottom center;
+    background-repeat: no-repeat;
+    z-index: 2;
+    pointer-events: none;
+
+    @media @mobile {
+      background-size: 110% auto;
+    }
+  }
+
+  @media @mobile {
+    min-height: 340px;
+  }
+
+  .wrapper,
+  .container {
+    overflow: visible; // Allows for selects/dropdowns to overflow hero unit
+  }
+
+
+}
+
+
+.heroUnit {
+  position: relative;
+  width: 100%;
+  max-width: 600px;
+  margin-top: 90px;
+  padding: 40px 32px 80px;
+  // background: linear-gradient(to bottom, fade(@custom-colour4,32%), fade(@custom-colour4,0%));
+  // background: linear-gradient(to bottom, fade(@primary-colour,32%), fade(@primary-colour,0%));
+
+  @media @lap {
+    max-width: 480px;
+    margin-top: 80px;
   }
 
   @media @mobile {
     height: auto;
     min-height: unset;
+    padding: 24px 0;
+    background: transparent;
+    z-index: 1;
+    margin-top: 35px;
   }
 
-  &.visible {
-    background: url('@{dealer-img}/theme/hero-unit__bg{CACHE_BUSTER}.jpg') center center no-repeat!important;
-    background-size: cover !important;
+  &__mainTitle {
+    display: block;
+    color: white;
+    font-size: 40px;
+    font-weight: bold;
+    line-height: 1;
 
-    @media @mobile {
-      background: url('@{dealer-img}/theme/hero-unit__bg--mobile{CACHE_BUSTER}.jpg') center center no-repeat!important;
-      background-size: cover !important;
+    @media @lap {
+      font-size: 29px;
     }
   }
 
-  &:before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: fade(black,40%);
+  &__subtitle {
+    font-size: 25px;
+    color: white;
+
+    @media @lap {
+      font-size: 21px;
+    }
+  }
+}
+
+
+.hero-links {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: -32px;
+  margin-bottom: -16px;
+  padding: 0 0 48px;
+  background: none !important;
+
+  @media @mobile {
+    flex-wrap: wrap;
+    padding: 0 0 24px;
   }
 
-  .container {
-    margin: 0 auto;
-    overflow: visible;
-    position: relative;
+  li {
+    flex: 0 0 auto;
+    margin-right: 32px;
+    margin-bottom: 16px;
+    transform: translateY(80px);
+    opacity: 0;
+    transition: all 200ms ease-in-out;
+
+    a {
+      display: block;
+      padding: 16px 48px;
+      background: @secondary-colour;
+      color: white;
+      font-size: 24px;
+      font-weight: bold;
+      border-radius: 99px;
+      box-shadow: 0 4px 16px fade(@secondary-colour, 56%);
+
+      @media @tablet {
+        font-size: 20px;
+        padding: 12px 32px;
+      }
+
+      &:hover {
+        background: @accent-colour;
+        color: white;
+        box-shadow: 0 8px 16px fade(@accent-colour, 64%);
+      }
+    }
+  }
+
+  &.visible {
+    li {
+      transform: translateY(0);
+      opacity: 1;
+    }
+
+    li:nth-child(1) {
+      transition-delay: 1s;
+    }
+
+    li:nth-child(2) {
+      transition-delay: 1.14s;
+    }
+
+    li:nth-child(3) {
+      transition-delay: 1.28s;
+    }
+
+    li:nth-child(4) {
+      transition-delay: 1.42s;
+    }
   }
 }
 
 
 
 
-.hero-unit-block {
-  position: relative;
-  padding: 40px;
+// Hero Search overrides
+#heroSearch {
+  background: @custom-colour1;
+  border-radius: 0px;
+  box-shadow: 0 8px 32px fade(black, 32%);
 
-  @media @tablet {
-    padding: 30px;
-  }
   @media @mobile {
-    padding: 40px 20px;
+    box-shadow: 0 8px 16px fade(black, 16%);
   }
 
-  &__title {
-    font-family: @heading-font;
-    font-size: 3.3vw;
-    font-weight: bold;
-    color: white;
-    z-index: 12;
-    margin-bottom: 10px;
+  .hero-search {
+
+    .tabs-buttons {
+      // background: darken(@custom-colour1,8%);
+
+      .tabs-button {
+        // background: darken(@custom-colour1,8%);
+        // color: @text-colour;
+        // font-family: @body-font;
+        font-size: 26px;
+
+        em {
+          display: none;
+        }
+
+        &.selected {
+          // background: @custom-colour1;
+          // color: @heading-colour;
+
+          em {
+            color: @accent-colour;
+          }
+        }
+      }
+    }
+
+    .tabs-content {
+      // padding: 24px;
+      // background: @custom-colour1;
+    }
+
+    .toggle-group {
+      // background: @custom-colour2;
+
+      .toggle-button {
+        // font-family: @body-font;
+
+        &.selected,
+        &:hover {
+          // background: @accent-colour2;
+          // color: white;
+          // text-shadow: 0 3px 6px fade(black,16%);
+        }
+
+        // &:hover {
+        // background: @accent-colour;
+        // }
+      }
+    }
+
+    .accordion__heading:after,
+    .dropdown__heading:after {
+      // .char(angle-down);
+      // color: @secondary-colour;
+      font-size: 22px;
+    }
+
+    // .hero-search-button {
+    //   background: @accent-colour;
+
+    //   &:hover {
+    //     background: @primary-colour;
+    //   }
+    // }
+  }
+}
+
+
+
+// Award Banner
+.awardBnr {
+  position: absolute;
+  top: 0;
+  right: 0;
+  padding: 24px 16px 24px 40px;
+  background: white;
+  text-align: center;
+  border-radius: 0 0 0 45px;
+  box-shadow: -8px -8px 16px fade(black, 32%);
+
+  @media @mobile {
+    display: none;
+  }
+
+  img {
+    max-width: 170px;
+  }
+}
+
+.heroTabs {
+  display: flex;
+  flex-wrap: nowrap;
+
+  &__item {
+    flex: 1 1 60px;
+    background: fade(@primary-colour, 80%);
+    border-radius: 8px 8px 0 0;
+    transition: all 200ms ease-in-out;
     text-align: center;
-    width: 100%;
 
-    @media @tablet {
-      font-size: 3.6vw;
-    }
-    @media @mobile {
-      font-size: 26px;
-      margin-top: 0;
-    }
+    &.ui-state-active {
+      background: white;
 
-    // @media @tablet {
-    //   font-size: 38px;
-    // }
-    // @media @tablet {
-    //   font-size: 30px;
-    // }
-  }
+      &.ui-state-hover {
+        background: white;
+      }
 
-  &__text {
-    z-index: 12;
-    margin: 0 auto;
-    margin-bottom: 100px;
-    width: 100%;
-
-    @media @mobile {
-      margin-bottom: 30px;
-    }
-
-    ul {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      text-align: center;
-
-      li {
-        font-family: @heading-font;
-        font-weight: bold;
-        color: darken(white,15%);
-        margin-right: 30px;
-        font-size: 1.5vw;
-        text-align: center;
-
-        @media @tablet {
-          font-size: 15px;
-          margin-right: 20px;
-          margin-bottom: 6px;
-        }
-        @media @mobile {
-          font-size: 11px;
-          margin-right: 10px;
-        }
-
-        &:last-child {
-          margin-right: 0;
-        }
+      a {
+        color: @primary-colour;
 
         i {
           color: @accent-colour;
         }
       }
     }
+
+    &.ui-state-hover {
+      background: @secondary-colour;
+
+      a {
+        color: @primary-colour;
+      }
+    }
+
+    a {
+      display: block;
+      padding: 16px;
+      color: white;
+      font-size: 18px;
+      font-weight: bold;
+      transition: all 200ms ease-in-out;
+
+      @media @mobile {
+        font-size: 14px;
+      }
+
+      i {
+        color: @accent-colour;
+      }
+    }
   }
 }
 
+.heroTab {
+  background: white;
+  padding: 32px;
+  border-radius: 0 0 16px 16px;
+  box-shadow: 0 10px 20px fade(black, 25%);
+  box-sizing: content-box;
+  // min-height: 306px;
+  display: flex;
+  align-items: center;
 
-
-// Search
+  @media @mobile {
+    padding: 24px;
+    border-radius: 0;
+  }
+}
 
 .search-block {
-  background: white;
-  border-radius: 6px;
-  padding: 12px;
   width: 100%;
-  max-width: 1400px;
-  margin: 10px auto 30px auto;
-  z-index: 12; // Eliminates issue on Firefox where search would disappear briefly during transitions
 }
 
 .o-search.o-search--home {
   position: relative;
 
   .search-block__title {
-    position: absolute;
-    top: -54px;
-    left: 0px;
-    color: white;
+    color: @heading-colour;
     font-family: @heading-font;
     font-weight: bold;
     font-size: 22px;
     display: block;
 
     @media @mobile {
-      position: unset;
-      color: @heading-colour;
-      display: none;
-    }
-  }
-
-  form {
-
-    .flex-display();
-
-    @media @mobile {
-      .flex-direction(@direction: column);
+      font-size: 18px;
     }
   }
 
@@ -179,174 +373,61 @@
     margin: 0;
   }
 
-  .fieldset {
-    .flex-grow(@grow: 1);
-    .flex-shrink(@shrink: 1);
-    .flex-basis(@width: auto);
-    margin-right: 20px;
-
-    @media @mobile {
-      margin-right: 0;
-    }
-  }
-
-  .fieldset__wrapper {
-    .flex-display();
-    padding: 0;
-    margin-right: -20px;
-    margin-bottom: -10px;
-    border: none;
-  }
-
   .form-group {
-    .flex-grow(@grow: 0);
-    .flex-shrink(@shrink: 0);
-    .flex-basis(@width: calc(~'100% - 16px'));
-    width: auto;
-    margin-right: 16px;
     margin-bottom: 10px;
-
-    @media @mobile {
-      margin-bottom: -1px;
-    }
   }
 
   select {
-    line-height: 44px;
-    height: 44px;
+    line-height: 54px;
+    height: 54px;
     box-shadow: none;
-    color: @primary-colour;
-    font-size: 17px;
-    font-weight: 600;
+    color: @text-colour;
+    font-size: 16px;
+    font-weight: 400;
     text-transform: capitalize;
-    padding: 0 41px 0 8px;
-    border: none;
-    border-right: 1px solid #ddd;
-    background-color: white;
-    background-size: 20px 20px  !important;
+    padding: 0 41px 0 12px;
+    border: 1px solid #ddd;
+    background-size: 14px 14px !important;
+    background-position: right 6px center !important;
+    background-color: @custom-colour1;
+    background-size: 20px 20px !important;
     background-position: right 16px center !important;
-
-    @media @lap {
-      line-height: 40px;
-      height: 40px;
-    }
-    @media @tablet {
-      line-height: 36px;
-      height: 36px;
-      font-size: 16px;
-    }
-    @media @mobile {
-      border: 1px solid #ddd;
-      background-size: 14px 14px !important;
-      background-position: right 6px center !important;
-      font-size: 16px;
-    }
+    margin-bottom: 10px;
   }
 
   .button-group {
     width: 100%;
 
-    @media @mobile {
-      margin-right: 16px;
-      margin-bottom: 16px;
-      margin-top: 16px;
-    }
-
-    a, button, input[type=submit] {
+    a,
+    button,
+    input[type=submit] {
       width: 100%;
-      height: 44px;
-
-      @media @lap {
-        height: 40px;
-      }
-      @media @tablet {
-        height: 36px;
-      }  
     }
   }
 
-  // search fieldset
-
-  .fieldset--search {
-    .flex-basis(@width: 480px);
-
-    @media @mobile {
-      .flex-basis(@width: auto);
-    }
-
-    .fieldset__wrapper {
-      @media @mobile {
-        .flex-direction(@direction: column);
-      }
-    }
-
-    .form-group {
-      .flex-basis(@width: calc(~'100% / 2 - 16px'));
-
-      @media @mobile {
-        .flex-basis(@width: calc(~'100% - 16px'));
-      }
-    }
-  }
 
   // price fieldset
 
   .fieldset--price {
-    .flex-basis(@width: 190px);
-    position: relative;
-
-    @media @mobile {
-      .flex-basis(@width: auto);
-    } 
-
-    .fieldset__wrapper {
-
-      @media @mobile {
-        .flex-direction(@direction: column);
-        margin-top: 23px;
-      }
-    }
-
-    .form-group {
-
-      &--budgetmin {
-        display: none;
-      }
-    }
-  }
-
-  // button fieldset
-
-  .fieldset--button {
-    .flex-basis(@width: 120px);
-    
-    @media @mobile {
-      .flex-basis(@width: auto);
-      
-    }
-
-    .fieldset__wrapper {
-      @media @mobile {
-        margin-top: 10px;
-      }
-    }
+    // margin-top: 50px;
   }
 
   .budget-toggle {
-    position: absolute;
-    bottom: 100%;
-    left: 50%;
-    margin-bottom: 30px;
-    transform: translateX(-50%);
+    // position: absolute;
+    // bottom: 100%;
+    // left: 50%;
+    margin-bottom: 20px;
+    // transform: translateX(-50%);
 
     @media @mobile {
-      position: relative;
+      // position: relative;
       margin-bottom: 16px;
-      left: 46%;
+      // left: 46%;
     }
 
-    .finance, .price {
-      color: white;
+    .finance,
+    .price {
+      color: lighten(@primary-colour, 20%);
       font-weight: bold;
       margin-bottom: 8px;
 
@@ -363,7 +444,7 @@
 
   .a-toggle+label {
     background: transparent;
-    border: 1px solid white;
+    border: 1px solid @primary-colour;
     width: 52px;
     height: 24px;
 
@@ -379,4 +460,120 @@
       }
     }
   }
+}
+
+
+.tab-sell-your-car {
+  text-align: center;
+
+  .tabs-content__subheading {
+    color: @heading-colour;
+    font-family: @heading-font;
+    font-weight: 700;
+    font-size: 22px;
+    display: block;
+  }
+
+  // .clickbuy-search {
+
+  //   &__button button {
+  //     background: @accent-colour;
+  //     color: white;
+  //   }
+
+  //   &__manual a {
+  //     color: @accent-color;
+  //   }
+  // }
+}
+
+
+.hero-search {
+  width: 470px;
+  box-shadow: 0px 8px 16px #00000026;
+  border-radius: var(--hero-search-tabs-content-radius);
+
+  @media @lap {
+    width: 420px;
+  }
+
+  @media @tablet {
+    width: 360px;
+  }
+
+  @media @mobile {
+    margin: 0 auto;
+    width: 94%;
+  }
+
+  .tabs-buttons {
+    // border-bottom: 1px solid var(--border-color);
+  }
+
+  .tabs-button {
+    text-transform: capitalize;
+
+    em {
+      display: none;
+    }
+
+    &.selected {
+      position: relative;
+
+      // &:before {
+      //   content: '';
+      //   background: var(--primary-color);
+      //   position: absolute;
+      //   bottom: -1px;
+      //   left: 0;
+      //   height: 4px;
+      //   width: 100%;
+      //   z-index: 2;
+      // }
+    }
+  }
+
+  // hides the car/bike/van togggle
+  .toggle-group {
+    display: none;
+  }
+
+  .tabs-content {
+
+    &__heading {
+      margin-bottom: 16px !important;
+      font-size: 22px !important;
+      // hide
+      display: none;
+
+      @media @tablet {
+        font-size: 20px !important;
+      }
+
+      @media @mobile {
+        font-size: 18px !important;
+      }
+    }
+
+    &__subheading {
+      display: none;
+    }
+  }
+
+  .inline-dropdowns {
+    flex-direction: row;
+    gap: 16px;
+
+    @media @mobile {
+      flex-direction: column;
+    }
+
+    .dropdown-manufacturer {
+      margin-right: 0 !important;
+    }
+  }
+
+  // .accordion.budget {
+  //   display: none;
+  // }
 }

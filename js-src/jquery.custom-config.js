@@ -165,4 +165,26 @@ $(document).ready(function() {
     $("#detail-safety-modal").toggleClass("toggled");
   });
 
+  // HOME BUDGET SEARCH
+  $(function () {
+    $("#slider-range-min").slider({
+      range: "min",
+      value: 200,
+      min: 0,
+      max: 1000,
+      step: 25,
+      slide: function (event, ui) {
+        $("#amount-budget-range-min").val("£" + ui.value);
+        $("#button-budget-range-min").attr("href", "/search_page.php?budget=" + ui.value);
+      },
+      blurFunc: $('#amount-budget-range-min').blur(function () {
+        var price = $('#amount-budget-range-min').val().substring(1);
+        $('#slider-range-min').slider('value', parseInt(price));
+        $("#button-budget-range-min").attr("href", "/search_page.php?budget=" + price);
+      })
+    });
+    $("#amount-budget-range-min").val("£" + $("#slider-range-min").slider("value"));
+  });
+  // END HOME BUDGET SEARCH
+
 }(jQuery));

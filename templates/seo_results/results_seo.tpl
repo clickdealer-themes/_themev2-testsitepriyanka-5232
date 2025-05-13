@@ -47,6 +47,9 @@
 					</div>
 					<!-- End Super Banner -->
 
+                    <div class="results__representative-example finance">
+                        {GLOBAL_REPRESENTATIVE_EXAMPLE}
+                    </div>
 
 					{RESULTS_OUT_OF_STOCK_FORM}
 
@@ -63,7 +66,7 @@
 
 
 					<!-- Detail Finance example -->
-					{RESULTS_FINANCE_EXAMPLE}
+					<!-- RESULTS_FINANCE_EXAMPLE -->
 					<!-- // Detail Finance example -->
 
 

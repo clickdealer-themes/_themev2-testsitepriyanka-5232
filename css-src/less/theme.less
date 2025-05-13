@@ -44,7 +44,7 @@
 /*  xx.  Image File Paths
 /* ------------------------------------------------------------------------- */
 
-@dealer-img: "/img-src/_themev2-uiuxbase-2519";
+@dealer-img: "/img-src/_themev2-testsitepriyanka-5232";
 @global-img: "/assets/images/themev2";
 
 /* ------------------------------------------------------------------------- */
@@ -68,6 +68,8 @@
 @import "flexbox.less"; // flexbox fallbacks
 
 @import '//click-websites.co.uk/assets/icons/_variables.less';
+@import 'budget-search.less';
+
 
 
 // Pagespeed lazy load
@@ -85,6 +87,8 @@
 @tablet: ~'handheld, only screen and (max-width: 979px)';
 @lap: ~'handheld, only screen and (max-width: 1279px)';
 @desk: ~'handheld, only screen and (max-width: 1440px)';
+@ieonly: ~"screen and (-ms-high-contrast: active)";
+@import "splide.less";
 
 // Clearfix
 .clearfix{
@@ -172,9 +176,9 @@ body {
 
 #main-wrap {
   padding-bottom: 40px;
-  margin-top: 80px;
+  margin-top: 120px;
   @media @tablet {
-    margin-top: 60px;
+    margin-top: 82px;
   }
   @media @mobile {
     margin-top: 0;
